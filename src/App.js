@@ -5,7 +5,7 @@ import './App.css';
 
 import csvFile from './cities.csv';
 
-import TableRow from './TableRow';
+import TableRow from './components/TableRow';
 
 
 
@@ -21,17 +21,20 @@ function App() {
       complete: function (results, file) {       
         const formatedResults = results.data.splice(1).map((result) => {
           let dataObj = {};
-          [dataObj["#"],
-          dataObj["City"],
-          dataObj["Country"],
-          dataObj["All Buildings"],
-          dataObj["100m"],
-          dataObj["150m"],
-          dataObj["200m"],
-          dataObj["300m"],
-          dataObj["Telecom Towers"],
-          dataObj["All Structures"],
+
+          [ 
+            dataObj["#"],
+            dataObj["City"],
+            dataObj["Country"],
+            dataObj["All Buildings"],
+            dataObj["100m"],
+            dataObj["150m"],
+            dataObj["200m"],
+            dataObj["300m"],
+            dataObj["Telecom Towers"],
+            dataObj["All Structures"],
           ] = result;
+
           return {...dataObj}
         })
         
@@ -91,7 +94,9 @@ function App() {
         </tr>
       </thead>
       <tbody>
-        {filteredData?.map(( rowData, index ) => <TableRow rowData={rowData} key={index.toString()} />)}
+        {filteredData?.map(( rowData, index ) => {
+          return <TableRow rowData={rowData} key={index.toString()} />
+        })}
       </tbody>
     </table>
   );

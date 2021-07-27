@@ -4,9 +4,9 @@ To run this project locally, you need to:
 
 ### Clone this repository and cd into the project
 
-### `npm install`
+### Then run `npm install`
 
-This is to installs all the necessary dependencies for the project.
+This is to install all the required dependencies for the project.
 
 
 ### `npm start`
